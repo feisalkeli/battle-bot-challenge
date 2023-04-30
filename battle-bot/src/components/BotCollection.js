@@ -21,7 +21,13 @@ function BotCollection() {
         .then(setCurrentBots((data) => data.filter((bot) => bot.id !== id))),
     });
   };
-  const handleAddBots = function (bot) {};
+  const handleAddBots = function (bot) {
+    if (currentBots.find((bot) => bot.id === bot.id)) {
+      return;
+    }
+    window.alert("Bot is already on list");
+    setCurrentBots((currentBots) => [...currentBots, bot]);
+  };
   return (
     <>
       <div className="container col">
@@ -38,6 +44,7 @@ function BotCollection() {
               image={bots.avatar_url}
               created={bots.created_at}
               updated={bots.updated_at}
+              addBotHandler={handleAddBots}
             />
           );
         })}

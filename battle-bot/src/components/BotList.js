@@ -11,11 +11,8 @@ function BotList({
   image,
   created,
   updated,
+  addBotHandler,
 }) {
-  const [army, setBotArmy] = useState([]);
-  console.log(army);
-
-  function botArmyHandler() {}
   return (
     <>
       <div>
@@ -30,7 +27,7 @@ function BotList({
             <p class="card-text">created:{created}</p>
             <p class="card-text">phrase:{catchphrase}</p>
             <p class="card-text">updated:{updated}</p>
-            <button onClick={botArmyHandler}>Add Bot</button>
+            <button onClick={() => addBotHandler(bot)}>Add Bot</button>
             {}
           </div>
         </div>
