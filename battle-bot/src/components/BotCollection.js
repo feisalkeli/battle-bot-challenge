@@ -10,6 +10,18 @@ function BotCollection() {
       .then((res) => res.json())
       .then((data) => setCurrentBots(data));
   }, []);
+  const handleDelete = function (id) {
+    const deleteBots = currentBots.find((bot) => bot.id === id);
+    fetch("http://localhost:3006/bots", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+        .then((res) => res.json)
+        .then(setCurrentBots((data) => data.filter((bot) => bot.id !== id))),
+    });
+  };
+  const handleAddBots = function (bot) {};
   return (
     <>
       <div className="container col">
