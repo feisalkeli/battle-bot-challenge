@@ -1,10 +1,16 @@
 import BotCollection from "./components/BotCollection";
-import MainNavigation from "./components/MainNavigation";
+
 import BotList from "./components/BotList";
+import NavBar from "./components/NavBar";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+createBrowserRouter([
+  { path: "/", element: <NavBar /> },
+  { children: [{ path: "" }] },
+]);
 function App() {
   return (
     <>
-      <MainNavigation />
+      <NavBar />
 
       <BotCollection />
       <BotList />

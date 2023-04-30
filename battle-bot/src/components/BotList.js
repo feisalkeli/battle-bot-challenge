@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Botlist.css";
 
 function BotList({
@@ -11,10 +12,14 @@ function BotList({
   created,
   updated,
 }) {
+  const [army, setBotArmy] = useState([]);
+  console.log(army);
+
+  function botArmyHandler() {}
   return (
     <>
-      <div class=" container col">
-        <div class="card" style={{ width: "18rem" }}>
+      <div>
+        <div class="card col-sm-3" style={{ width: "18rem " }}>
           <p class="card-text">Bot name:{name}</p>
           <img src={image} class="card-img-top" alt="..." />
           <div class="card-body">
@@ -25,6 +30,8 @@ function BotList({
             <p class="card-text">created:{created}</p>
             <p class="card-text">phrase:{catchphrase}</p>
             <p class="card-text">updated:{updated}</p>
+            <button onClick={botArmyHandler}>Add Bot</button>
+            {}
           </div>
         </div>
       </div>
