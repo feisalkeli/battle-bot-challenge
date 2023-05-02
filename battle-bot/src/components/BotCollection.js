@@ -18,7 +18,7 @@ function BotCollection() {
         "Content-Type": "application/json",
       }
         .then((res) => res.json)
-        .then(setCurrentBots((data) => data.filter((bot) => bot.id !== id))),
+        .then(setCurrentBots(deleteBots)),
     });
   };
   const handleAddBots = function (bot) {
